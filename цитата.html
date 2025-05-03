@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="uk"> <!-- Changed language to Ukrainian -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отримати цінову пропозицію - ЦССПЛЮС</title> <!-- Змінено на оригінальну назву бренду -->
+        <link rel="icon" type="image/x-icon" href="favicon.png">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="quote.css"> <!-- Keep if it has unique base quote styles -->
+        <link rel="stylesheet" href="services.css">
+        <link rel="stylesheet" href="services-animations.css">
+        <link rel="stylesheet" href="quote-enhanced.css"> <!-- MOVED TO LOAD LAST -->
+        <!-- Geist font is loaded via @font-face in styles.css -->
+    </head>
+<body>
+    <div id="ukraine-support-widget">
+        <div class="icon-tooltip-wrapper">
+            <div id="ukraine-icon" onclick="showSupportMessage()">
+                <!-- SVG Heart Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </div>
+            <div class="tooltip-text">
+                <span class="text-yellow font-bold">Слава</span> <!-- З великої літери -->
+                <span class="text-blue font-bold">Україні</span> <!-- Додано знак оклику і правильний відмінок -->
+            </div>
+        </div>
+    </div>
+    <!-- Background Animation -->
+    <div class="el"></div>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-indicator"></div>
+
+    <!-- Glowing Menu Icon -->
+    <div class="menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Navigation Menu Layer 1 (Gradient Background) -->
+    <nav class="main-nav"></nav>
+
+    <!-- Navigation Menu Layer 2 (Text Links) -->
+    <nav class="text-nav">
+        <div class="nav-content">
+            <ul>
+                <!-- NOTE: These links were already Ukrainian in the provided file -->
+                <li data-stagger="1"><a href="додому.html">додому</a></li>
+                <li data-stagger="2"><a href="послуги.html">послуги</a></li>
+                <li data-stagger="3"><a href="про нас.html">про нас</a></li>
+                <li data-stagger="4"><a href="цитата.html">отримати цитату</a></li>
+                <li class="lang-item" data-stagger="5"><a href="index.html">English</a></li>
+            </ul>
+            <!-- Оновлено слоган для узгодженості -->
+            <p class="nav-tagline" data-stagger="6">Створюємо цифрову досконалість.</p>
+            <div class="nav-contact-info">
+                <ul class="nav-contact-info" data-stagger="7">
+                    <li><a href="mailto:contact@cssplus.us">contact@cssplus.us</a></li> <!-- Consistent contact -->
+                    <li><a href="tel:+12673941289">+1 (267) 394-1289</a></li> <!-- Consistent contact -->
+                 </ul>
+            </div>
+        </div>
+        <div class="nav-divider"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="services-header" class="animate-on-load">
+        <h1>Отримати цінову пропозицію</h1>
+        <p class="services-intro">Розкажіть нам про свій проєкт, і давайте разом створимо щось дивовижне.</p> <!-- Виправлено "проект" на "проєкт" -->
+
+    </section>
+
+    <div class="scroll-down-hint animate-on-load">
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c12dee;" /><stop offset="100%" style="stop-color:#4b69ec;" /></linearGradient></defs><polyline points="4,8 12,16 20,8" fill="none" stroke="url(#arrowGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c12dee;" /><stop offset="100%" style="stop-color:#4b69ec;" /></linearGradient></defs><polyline points="4,8 12,16 20,8" fill="none" stroke="url(#arrowGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c12dee;" /><stop offset="100%" style="stop-color:#4b69ec;" /></linearGradient></defs><polyline points="4,8 12,16 20,8" fill="none" stroke="url(#arrowGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+
+    <!-- Quote Form Section -->
+    <section id="quote-form-section" class="animate-on-load">
+        <form id="quote-form" class="quote-form-container">
+
+            <div class="form-grid">
+                <!-- Personal Information -->
+                <div class="form-section animate-on-load" data-delay="0.2">
+                    <h2>Контактна інформація</h2>
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required placeholder=" ">
+                        <label for="name">Повне ім'я</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required placeholder=" ">
+                        <label for="email">Адреса електронної пошти</label> <!-- Translated -->
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder=" ">
+                        <label for="phone">Номер телефону (необов'язково)</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="company" name="company" placeholder=" ">
+                        <label for="company">Назва компанії (необов'язково)</label>
+                    </div>
+                </div>
+
+                <!-- Project Details -->
+                <div class="form-section animate-on-load" data-delay="0.4">
+                    <h2>Деталі проєкту</h2> <!-- Виправлено "проекту" на "проєкту" -->
+                    <div class="form-group">
+                        <select id="service-type" name="service-type" required>
+                            <option value="" disabled selected>Виберіть послугу...</option>
+                            <option value="web-design">Веб-дизайн</option>
+                            <option value="web-development">Індивідуальна веб-розробка</option>
+                            <option value="python">Розробка на Python</option>
+                            <!-- ОНОВЛЕНО: Додано нові опції з англійської версії -->
+                            <option value="data-analysis">Аналіз даних</option>
+                            <option value="slideshow">Створення слайд-шоу/презентацій</option>
+                            <option value="other">Інше</option>
+                        </select>
+                        <label for="service-type" class="select-label"> </label>
+                         <span class="select-arrow"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="project-description" name="project-description" required placeholder=" "></textarea>
+                        <label for="project-description">Опис проєкту</label> <!-- Виправлено "проекту" на "проєкту" -->
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="timeline" name="timeline" required placeholder=" ">
+                        <label for="timeline">Очікуваний термін</label>
+                    </div>
+                </div>
+
+                <!-- Budget Range -->
+                <div class="form-section form-section-full animate-on-load" data-delay="0.6">
+                    <h2>Діапазон бюджету</h2> <!-- Translated -->
+                    <div class="form-group slider-group">
+                        <div class="budget-display">
+                            <!-- Використано символ гривні -->
+                            <span>Бюджет: ₴</span> <!-- Translated -->
+                            <!-- *** UPDATED DEFAULT VALUE DISPLAY *** -->
+                            <span id="budget-value">2,000,000</span>
+                            <!-- EMOJI DIV REMOVED -->
+                        </div>
+                        <!-- Оновлено атрибути слайдера відповідно до англ. версії -->
+                        <input type="range" id="budget" name="budget"
+                                min="4000"
+                                max="4000000"
+                                step="1000"
+                                value="2000000">
+                        <span id="current-budget-label" class="current-value-label"></span>
+                        <div class="range-labels">
+                            <!-- Оновлено мітки діапазону -->
+                            <span>4,000 ₴</span>
+                            <span>4,000,000+ ₴</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="form-section form-section-full animate-on-load" data-delay="0.8">
+                    <h2>Додаткова інформація</h2> <!-- Translated -->
+                    <div class="form-group">
+                        <textarea id="additional-info" name="additional-info" placeholder=" "></textarea>
+                        <label for="additional-info">Будь-які інші деталі?</label>
+                    </div>
+                </div>
+            </div> <!-- End form-grid -->
+
+            <button type="submit" id="submit-button" class="cta-button submit-button animate-on-load" data-delay="1.0">
+                Надіслати запит <span class="arrow-icon">→</span> <!-- Скорочено текст кнопки -->
+            </button>
+
+        </form>
+    </section>
+
+    <footer class="animate-on-load" data-delay="1.2"> <!-- Додано анімацію до футера -->
+        <div class="footer-content">
+            <div class="footer-divider"></div>
+            <p>© <span id="current-year">2024</span> ЦССПЛЮС. Всі права захищено.</p> <!-- Translated -->
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+    <!-- *** THIS LINE IS NOW UNCOMMENTED *** -->
+    <script src="quote-form.js"></script>
+    <script>
+        // Функціонал слайдера бюджету (Логіка Emoji видалена)
+        const budgetSlider = document.getElementById('budget');
+        const budgetValueSpan = document.getElementById('budget-value');
+        // const budgetEmojisContainer = document.getElementById('budget-emojis'); // REMOVED
+        const currentBudgetValueLabel = document.getElementById('current-budget-label');
+
+        function updateBudgetDisplay() {
+            // Removed check for budgetEmojisContainer
+            if (!budgetSlider || !budgetValueSpan || !currentBudgetValueLabel) { // Перевірка існування елементів
+                console.error("Budget elements not found. Check IDs: budget, budget-value, current-budget-label");
+                return;
+            }
+
+            const currentValue = parseInt(budgetSlider.value);
+            const maxValue = parseInt(budgetSlider.max);
+            const minValue = parseInt(budgetSlider.min);
+
+            // 1. Оновити основне значення тексту (використовуємо українську локаль для форматування)
+            budgetValueSpan.textContent = currentValue.toLocaleString('uk-UA');
+
+            const percent = (currentValue - minValue) / (maxValue - minValue);
+
+            // 2. Update Slider Track Fill
+            budgetSlider.style.setProperty('--track-fill-percent', `${percent * 100}%`);
+
+            // 3. Update Emojis - REMOVED
+
+            // 4. Оновити мітку поточного значення
+            // Використовуємо символ гривні та українську локаль
+            currentBudgetValueLabel.textContent = '₴' + currentValue.toLocaleString('uk-UA'); // Use Ukrainian locale
+            currentBudgetValueLabel.style.setProperty('--value-label-left-percent', `${percent * 100}%`);
+        }
+
+        if (budgetSlider) {
+            updateBudgetDisplay(); // Initial setup
+            budgetSlider.addEventListener('input', updateBudgetDisplay); // Update on change
+
+            // Show label on focus (optional, keep if desired)
+             // Логіка показу/приховування мітки при фокусі/втраті фокусу залишена без змін
+        } else {
+            console.error("Budget slider element (#budget) not found.");
+        }
+
+        // --- Решта скрипту (Анімації, Рік у футері, Обробка Select) ---
+
+        // Intersection Observer для анімацій при прокручуванні
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || 0;
+                    entry.target.style.transitionDelay = `${delay}s`;
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-on-load').forEach(el => observer.observe(el));
+
+        // Рік у футері
+        const currentYearSpan = document.getElementById('current-year');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+
+        // Обробка стану полів select (фокус, заповнення)
+        const selects = document.querySelectorAll('select'); // Знаходимо всі select
+        selects.forEach(select => {
+            select.addEventListener('focus', () => select.parentElement.classList.add('focused'));
+            select.addEventListener('blur', () => select.parentElement.classList.remove('focused'));
+             if (select.value && select.value !== "") {
+                 select.parentElement.classList.add('filled');
+             } else {
+                 select.parentElement.classList.remove('filled');
+             }
+             select.addEventListener('change', () => {
+                 if (select.value && select.value !== "") {
+                     select.parentElement.classList.add('filled');
+                 } else {
+                     select.parentElement.classList.remove('filled');
+                 }
+             });
+             // Перевірка при завантаженні сторінки
+             if (select.value && select.value !== "") {
+                 select.parentElement.classList.add('filled');
+             }
+        });
+
+    </script>
+</body>
+</html>

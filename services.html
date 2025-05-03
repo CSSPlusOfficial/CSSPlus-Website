@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - CSSPLUS</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="services-animations.css">
+</head>
+<body>
+    <div id="ukraine-support-widget">
+        <div class="icon-tooltip-wrapper">
+            <div id="ukraine-icon" onclick="showSupportMessage()">
+                <!-- SVG Heart Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </div>
+            <div class="tooltip-text">
+                <span class="text-blue font-bold">We</span>
+                <span class="text-yellow font-bold">Support</span>
+                <span class="text-blue font-bold">Ukraine</span>
+            </div>
+        </div>
+    </div>
+    <!-- Background Animation -->
+    <div class="el"></div>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-indicator"></div>
+
+    <!-- Glowing Menu Icon -->
+    <div class="menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Navigation Menu Layer 1 (Gradient Background) -->
+    <nav class="main-nav"></nav>
+
+    <!-- Navigation Menu Layer 2 (Text Links) -->
+    <nav class="text-nav">
+        <div class="nav-content">
+            <ul>
+                <li data-stagger="1"><a href="index.html">Home</a></li>
+                <li data-stagger="1"><a href="services.html">Services</a></li>
+                <li data-stagger="2"><a href="about.html">About Us</a></li>
+                <li data-stagger="3"><a href="quote.html">Get a Quote</a></li>
+                <li class="lang-item" data-stagger="5"><a href="додому.html">українська</a></li>
+            </ul>
+            <div class="nav-tagline">Building Digital Excellence.</div>
+            <div class="nav-contact-info">
+                <ul class="nav-contact-info" data-stagger="7">
+                    <li><a href="mailto:contact@cssplus.us">contact@cssplus.us</a></li> <!-- Consistent contact -->
+                    <li><a href="tel:+12673941289">+1 (267) 394-1289</a></li> <!-- Consistent contact -->
+                 </ul>
+            </div>
+        </div>
+        <div class="nav-divider"></div>
+    </nav>
+
+    <!-- Services Header -->
+    <section id="services-header" class="animate-on-load">
+        <h1>Our Services</h1>
+        <p class="services-intro">Expert custom website development, data analysis, and creative solutions tailored to your needs.</p> <!-- Updated intro slightly -->
+    </section>
+
+    <div class="scroll-down-hint animate-on-load">
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c12dee;" /><stop offset="100%" style="stop-color:#4b69ec;" /></linearGradient></defs><polyline points="4,8 12,16 20,8" fill="none" stroke="url(#arrowGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c12dee;" /><stop offset="100%" style="stop-color:#4b69ec;" /></linearGradient></defs><polyline points="4,8 12,16 20,8" fill="none" stroke="url(#arrowGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c12dee;" /><stop offset="100%" style="stop-color:#4b69ec;" /></linearGradient></defs><polyline points="4,8 12,16 20,8" fill="none" stroke="url(#arrowGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <!-- Services Grid - UPDATED -->
+    <section id="services-grid">
+        <div class="service-card animate-on-load" data-delay="0.2">
+            <div class="service-icon">🎨</div>
+            <h3>Web Design</h3>
+            <p>Beautiful, responsive websites that capture your brand's essence and engage your audience.</p>
+            <ul class="service-features">
+                <li>Custom UI/UX Design</li>
+                <li>Mobile-First Approach</li>
+                <li>Brand Integration</li>
+                <li>Interactive Prototypes</li>
+            </ul>
+        </div>
+
+        <div class="service-card animate-on-load" data-delay="0.4">
+            <div class="service-icon">💻</div>
+            <h3>Custom Web Development</h3>
+            <p>Specialized in creating custom websites and web applications with expertise in multiple programming languages.</p>
+            <ul class="service-features">
+                <li>Full-Stack Development</li>
+                <li>Multi-Language Programming</li>
+                <li>Custom Solutions</li>
+                <li>API Integration</li>
+            </ul>
+        </div>
+
+        <div class="service-card animate-on-load" data-delay="0.6">
+            <div class="service-icon">🐍</div>
+            <h3>Python Development</h3>
+            <p>Expert Python development services for automation, data analysis, and web applications.</p>
+            <ul class="service-features">
+                <li>Django & Flask Apps</li>
+                <li>Data Processing</li>
+                <li>Scripting & Automation</li>
+                <li>API Development</li>
+            </ul>
+        </div>
+
+        <!-- NEW CARD: Data Analysis -->
+        <div class="service-card animate-on-load" data-delay="0.8">
+            <div class="service-icon">📊</div> <!-- Changed Icon -->
+            <h3>Data Analysis</h3>
+            <p>Unlock insights from your data with our analysis and visualization services.</p>
+            <ul class="service-features">
+                <li>Data Cleaning & Processing</li>
+                <li>Statistical Analysis</li>
+                <li>Custom Reporting</li>
+                <li>Dashboard Creation</li>
+            </ul>
+        </div>
+
+        <!-- NEW CARD: Slideshow/Presentation Creation -->
+        <div class="service-card animate-on-load" data-delay="1.0">
+            <div class="service-icon">🖼️</div> <!-- Changed Icon -->
+            <h3>Slideshow or Presentation Creation</h3>
+            <p>Professional and engaging presentations tailored to your content and audience.</p>
+            <ul class="service-features">
+                <li>Custom Design Templates</li>
+                <li>Data Visualization</li>
+                <li>Content Structuring</li>
+                <li>Animation & Transitions</li>
+            </ul>
+        </div>
+
+        <!-- NEW CARD: Other -->
+        <div class="service-card animate-on-load" data-delay="1.2">
+            <div class="service-icon">💡</div> <!-- Changed Icon -->
+            <h3>Other Custom Services</h3>
+            <p>Have a unique requirement not listed here? Select 'Other' in the quote form and tell us about it!</p>
+            <ul class="service-features">
+                <li>Consultation</li>
+                <li>Prototyping</li>
+                <li>Specialized Development</li>
+                <li>Problem Solving</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Process Section (Keep as is) -->
+    <section id="process" class="animate-on-load">
+        <h2>Our Process</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">01</div>
+                <h3>Discovery</h3>
+                <p>Understanding your needs and objectives</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">02</div>
+                <h3>Planning</h3>
+                <p>Creating detailed roadmap and strategy</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">03</div>
+                <h3>Development</h3>
+                <p>Building your solution with precision</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">04</div>
+                <h3>Launch</h3>
+                <p>Deploying and ensuring success</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section (Keep as is) -->
+    <section id="cta" class="animate-on-load">
+        <h2>Ready to Start Your Project?</h2>
+        <p>Let's create something amazing together</p>
+        <a href="quote.html" class="cta-button">Get A Quote <span class="arrow-icon">→</span></a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-divider"></div>
+            <p>© <span id="current-year">2024</span> CSSPLUS. All rights reserved.</p> <!-- Added dynamic year -->
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Get delay from data attribute, default to 0 if not set
+                    const delay = entry.target.dataset.delay || 0;
+                    entry.target.style.transitionDelay = `${delay}s`; // Apply delay
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe all elements needing animation
+        document.querySelectorAll('.animate-on-load, .process-step').forEach(el => {
+            // Ensure initial state is set for transition if needed by CSS
+            // el.style.opacity = 0; // Or other initial properties if not set in CSS
+            observer.observe(el);
+        });
+
+        // Footer Year
+        const currentYearSpan = document.getElementById('current-year');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+
+        // Optional: Parallax effect (Keep if desired, remove if not)
+        // Consider performance implications of scroll listeners
+        // window.addEventListener('scroll', () => {
+        //     const scrolled = window.pageYOffset;
+        //     const servicesHeader = document.querySelector('#services-header');
+        //     const processSection = document.querySelector('#process');
+        //     const ctaSection = document.querySelector('#cta');
+
+        //     if (servicesHeader) servicesHeader.style.transform = `translateY(${scrolled * 0.3}px)`;
+        //     if (processSection) processSection.style.transform = `translateY(${scrolled * 0.1}px)`;
+        //     if (ctaSection) ctaSection.style.transform = `translateY(${scrolled * 0.05}px)`;
+        // }, { passive: true }); // Use passive listener for better scroll performance
+
+    </script>
+</body>
+</html>

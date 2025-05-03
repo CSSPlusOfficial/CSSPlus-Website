@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - CSSPLUS</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" href="styles.css"> <!-- Link the main stylesheet -->
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="services-animations.css">  <!-- Link the about page specific stylesheet -->
+    <!-- Geist font is loaded via @font-face in styles.css -->
+
+    <!-- Mapbox GL JS CSS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- Mapbox GL JS Script -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+
+</head>
+<body>
+    <div id="ukraine-support-widget">
+        <div class="icon-tooltip-wrapper">
+            <div id="ukraine-icon" onclick="showSupportMessage()">
+                <!-- SVG Heart Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </div>
+            <div class="tooltip-text">
+                <span class="text-blue font-bold">We</span>
+                <span class="text-yellow font-bold">Support</span>
+                <span class="text-blue font-bold">Ukraine</span>
+            </div>
+        </div>
+    </div>
+    <!-- Background Animation (from styles.css) -->
+    <div class="el"></div>
+
+    <!-- Scroll Progress Indicator (from styles.css) -->
+    <div id="scroll-indicator"></div>
+
+    <!-- Menu Icon (from styles.css) -->
+    <div class="menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Navigation Menu Layer 1 (Gradient Background) -->
+    <nav class="main-nav"></nav>
+
+    <!-- Navigation Menu Layer 2 (Text Links) - Adjusted to match other pages -->
+    <nav class="text-nav">
+         <div class="nav-content">
+             <!-- Main Links -->
+             <ul>
+                <li data-stagger="1"><a href="index.html">Home</a></li>
+                <li data-stagger="2"><a href="services.html">Services</a></li>
+                <li data-stagger="3"><a href="about.html">About Us</a></li> <!-- Corrected link -->
+                <li data-stagger="4"><a href="quote.html">Get a Quote</a></li> <!-- Corrected link -->
+                <li class="lang-item" data-stagger="5"><a href="додому.html">українська</a></li>
+             </ul>
+
+             <!-- Tagline -->
+             <p class="nav-tagline" data-stagger="6">Building Digital Excellence.</p> <!-- Consistent tagline -->
+
+             <!-- Contact Info -->
+             <ul class="nav-contact-info" data-stagger="7">
+                <li><a href="mailto:contact@cssplus.us">contact@cssplus.us</a></li> <!-- Consistent contact -->
+                <li><a href="tel:+12673941289">+1 (267) 394-1289</a></li> <!-- Consistent contact -->
+             </ul>
+         </div>
+         <!-- Decorative Line -->
+         <div class="nav-divider"></div>
+    </nav>
+    <!-- End Navigation -->
+
+
+    <main id="about-page-content">
+
+        <!-- About Hero Section -->
+        <section id="services-header" class="animate-on-load">
+            <h1>About Us</h1>
+            <p class="services-intro">Discover the story, values, and vision behind CSSPLUS. We're more than just developers; we're your partners in digital innovation.</p>
+             
+             <!-- Optional Scroll Down Hint -->
+             
+        </section>
+
+        <div class="scroll-down-hint animate-on-load">
+            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c12dee;" /><stop offset="100%" style="stop-color:#4b69ec;" /></linearGradient></defs><polyline points="4,8 12,16 20,8" fill="none" stroke="url(#arrowGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c12dee;" /><stop offset="100%" style="stop-color:#4b69ec;" /></linearGradient></defs><polyline points="4,8 12,16 20,8" fill="none" stroke="url(#arrowGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c12dee;" /><stop offset="100%" style="stop-color:#4b69ec;" /></linearGradient></defs><polyline points="4,8 12,16 20,8" fill="none" stroke="url(#arrowGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+
+        <!-- Our Story Section -->
+        <section id="our-story" class="content-section animate-on-load" data-delay="0.2s">
+            <h2 class="gradient-text-heading">Our Journey</h2>
+            <p>Founded in May 2025, CSSPLUS was built with a clear mission: to craft some of the finest websites on the internet. With a strong focus on design, performance, and innovation, CSSPLUS strives to transform ideas into stunning digital realities. Every project is approached with creativity and precision, ensuring that each website stands out while delivering an exceptional user experience.</p>
+            <p>At the heart of CSSPLUS is a highly skilled student developer with years of experience across multiple programming languages and technologies. With deep roots in Ukraine, the founder brings a unique blend of technical expertise and cultural inspiration to every project. This background fuels a passion for excellence and a commitment to helping businesses and individuals elevate their online presence.</p>
+        </section>
+
+        <!-- MOVED Mapbox Section -->
+        <!-- ADDED id="mapbox-section" here for the IntersectionObserver -->
+        <section id="mapbox-section" class="content-section animate-on-load" data-delay="0.4s">
+            <h2 class="gradient-text-heading">Find Us</h2>
+            <p>While our reach is global, our roots are here. We are located in the historic town of Washington Crossing.</p>
+            <div id="map-container">
+                <!-- ADDED Explore Map Button -->
+                <button id="explore-map-button" class="explore-map-btn">Check out the map</button>
+            </div>
+            <!-- You can add address details here if needed -->
+            <!-- <p style="margin-top: 1.5rem;">1 River Road, Washington Crossing, PA 18977</p> -->
+        </section>
+
+        <!-- Our Values Section -->
+        <section id="our-values" class="content-section animate-on-load" data-delay="0.6s"> <!-- Adjusted delay -->
+            <h2 class="gradient-text-heading">Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">💡</div>
+                    <h3>Innovation</h3>
+                    <p>Constantly exploring new technologies and creative solutions.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Partnership</h3>
+                    <p>Building strong, collaborative relationships with our clients.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⭐</div>
+                    <h3>Quality</h3>
+                    <p>Delivering robust, reliable, and high-performance solutions.</p>
+                </div>
+                 <div class="value-card">
+                    <div class="value-icon">📈</div>
+                    <h3>Integrity</h3>
+                    <p>Operating with transparency, honesty, and ethical practices.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Optional CTA Section -->
+        <section id="about-cta" class="animate-on-load" data-delay="0.8s"> <!-- Adjusted delay -->
+             <h2>Ready to Innovate Together?</h2>
+             <p>Let's discuss how CSSPLUS can help elevate your next project.</p>
+             <a href="quote.html" class="cta-button"> <!-- Changed link to quote.html -->
+                 Get A Quote <span class="arrow-icon">→</span>
+             </a>
+        </section>
+
+    </main>
+
+    <!-- Footer (Consistent with other pages) -->
+    <footer>
+        <div class="footer-content">
+            <hr class="footer-divider">
+            <p>&copy; <span id="current-year"></span> CSSPLUS. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- === Footer End === -->
+
+    <!-- JavaScript Section -->
+    <script>
+        // --- Basic JS (Menu, Year, Scroll Indicator) ---
+        const menu = document.querySelector('.menu');
+        const mainNav = document.querySelector('.main-nav');
+        const textNav = document.querySelector('.text-nav');
+        const body = document.body;
+        const navLinks = document.querySelectorAll('.text-nav a'); // Get all nav links
+
+        menu.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            mainNav.classList.toggle('is-open');
+            textNav.classList.toggle('is-open');
+            body.classList.toggle('menu-open'); // Toggle class on body
+        });
+
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (body.classList.contains('menu-open')) {
+                    menu.classList.remove('active');
+                    mainNav.classList.remove('is-open');
+                    textNav.classList.remove('is-open');
+                    body.classList.remove('menu-open');
+                }
+            });
+        });
+
+        // Footer Year
+        const currentYearSpan = document.getElementById('current-year');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+
+        // Scroll Indicator
+        const scrollIndicator = document.getElementById('scroll-indicator');
+        const updateScrollIndicator = () => {
+            const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+            const scrollableHeight = scrollHeight - clientHeight;
+            const scrollPercent = scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0;
+            if (scrollIndicator) {
+                scrollIndicator.style.width = `${scrollPercent}%`;
+            }
+        };
+        window.addEventListener('scroll', updateScrollIndicator);
+        updateScrollIndicator(); // Initial call
+
+        // Scroll Down Hint Fade Out
+        const scrollHint = document.querySelector('.scroll-down-hint');
+        if (scrollHint) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) { // Adjust scroll distance as needed
+                    scrollHint.classList.add('fade-out');
+                }
+            }, { passive: true });
+        }
+        // --- End Basic JS ---
+
+
+        // --- Mapbox and Animation Logic ---
+        const mapContainer = document.getElementById('map-container');
+        let map = null; // Keep map instance accessible
+        let mapAnimationTriggered = false; // Flag to ensure animation runs only once
+        let mapReady = false; // Flag to check if style.load has finished
+
+        // --- Mapbox Setup ---
+        if (mapContainer) {
+            mapboxgl.accessToken = 'pk.eyJ1IjoiZzQ0MjQ0NDAiLCJhIjoiY205eWxhZGtnMWxkcTJrcHJ4ZWhzeHQ0diJ9.oAai3B7fDDKnD_1pK_g91A'; // Your token
+
+            // Coordinates
+            const finalCoords = [-74.87064, 40.29375]; // Washington Crossing, PA (40°17'37.5"N 74°52'14.3"W)
+            const nycCoords = [-74.0060, 40.7128]; // New York City
+
+            let isSpinning = false;
+            let animationFrameId = null;
+
+            // Token Check (same as before)
+            const placeholderToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
+            const exampleToken = 'pk.eyJ1IjoiZzQ0MjQ0NDAiLCJhIjoiY205eWxhZGtnMWxkcTJrcHJ4ZWhzeHQ0diJ9.oAai3B7fDDKnD_1pK_g91A';
+            if (!mapboxgl.accessToken || mapboxgl.accessToken === placeholderToken) {
+                 console.warn("Mapbox token missing or placeholder.");
+                 if (mapboxgl.accessToken === placeholderToken) { mapContainer.innerHTML = '<p style="color: orange; text-align: center; padding-top: 40%;">Please add Mapbox Token</p>'; }
+            } else if (mapboxgl.accessToken === exampleToken) { console.info("Using example Mapbox token."); }
+
+            try {
+                map = new mapboxgl.Map({ // Assign to the global 'map' variable
+                    container: 'map-container',
+                    style: 'mapbox://styles/mapbox/dark-v11',
+                    center: finalCoords, // Start centered near final destination (but zoomed out)
+                    zoom: 1.0,           // Start even more zoomed out
+                    pitch: 0,
+                    bearing: 0,
+                    projection: 'globe',
+                    antialias: true
+                });
+
+                 map.on('style.load', () => {
+                    console.log("Map style loaded.");
+                    mapReady = true; // Set flag indicating map is ready for animations
+
+                    map.setFog({ // Add atmospheric fog effect
+                        color: 'rgb(30, 30, 35)', // Dark fog color matching background
+                        'high-color': 'rgb(30, 30, 35)',
+                        'horizon-blend': 0.02, // Subtle blend
+                        'space-color': 'rgb(10, 10, 15)', // Dark space color
+                        'star-intensity': 0.15 // Subtle stars
+                    });
+
+                    // --- 3D Buildings Layer with Adjusted Zoom ---
+                    const layers = map.getStyle().layers;
+                    const labelLayerId = layers.find(l => l.type === 'symbol' && l.layout?.['text-field'])?.id;
+                    if (labelLayerId) {
+                        map.addLayer({
+                            'id': 'add-3d-buildings',
+                            'source': 'composite',
+                            'source-layer': 'building',
+                            'filter': ['==', 'extrude', 'true'],
+                            'type': 'fill-extrusion',
+                            'minzoom': 12, // Buildings appear earlier
+                            'paint': {
+                                'fill-extrusion-color': '#aaa',
+                                'fill-extrusion-height': ['interpolate',['linear'],['zoom'],12,0,13.5,['get','height']],
+                                'fill-extrusion-base': ['interpolate',['linear'],['zoom'],12,0,13.5,['get','min_height']],
+                                'fill-extrusion-opacity': 0.75
+                            }
+                        }, labelLayerId);
+                    } else { console.warn("Could not find a symbol layer for 3D buildings."); }
+                    // --- END 3D Buildings Layer ---
+
+                    // Check if the map section was already visible when style loaded
+                    if (mapAnimationTriggered) {
+                        console.log("Map ready, animation already triggered by observer, starting sequence.");
+                        executeMapAnimationSequence(); // Start animation if observer fired first
+                    }
+
+                    // --- Fade in Explore Button after delay ---
+                    setTimeout(() => {
+                        const exploreButton = document.getElementById('explore-map-button');
+                        if (exploreButton) {
+                            exploreButton.classList.add('visible'); // Use class for visibility/opacity
+                            console.log("Explore map button faded in.");
+                        }
+                    }, 12000); // 13 seconds delay after style load
+                 });
+
+                 map.on('error', (e) => {
+                    console.error('Mapbox GL Error:', e.error);
+                    mapContainer.innerHTML = '<p style="color: #ff6b6b; text-align: center; padding-top: 40%; font-size: 0.9rem;">Error loading map. Check console and Mapbox token.</p>';
+                 });
+
+                // Add controls
+                map.addControl(new mapboxgl.NavigationControl());
+                map.addControl(new mapboxgl.FullscreenControl());
+
+                // Add marker (at final destination)
+                new mapboxgl.Marker({ color: '#c12dee' }).setLngLat(finalCoords).addTo(map);
+
+                // --- Animation Functions (Spinning Logic) ---
+                function spinGlobe() {
+                    if (!isSpinning || !map) return;
+                    const currentBearing = map.getBearing();
+                    // Pivot around finalCoords
+                    map.easeTo({ bearing: currentBearing + 0.1, duration: 0, around: finalCoords, essential: true });
+                    animationFrameId = requestAnimationFrame(spinGlobe);
+                }
+                function startSpinning() {
+                    if (isSpinning) return;
+                    isSpinning = true;
+                    animationFrameId = requestAnimationFrame(spinGlobe);
+                    console.log("Map rotation started around final destination.");
+                }
+                function stopSpinning() {
+                    if (!isSpinning) return;
+                    isSpinning = false;
+                    if (animationFrameId) { cancelAnimationFrame(animationFrameId); animationFrameId = null; }
+                    console.log("Map rotation stopped.");
+                }
+
+                // Stop spinning on user interaction
+                map.on('dragstart', stopSpinning);
+                map.on('zoomstart', stopSpinning);
+                map.on('pitchstart', stopSpinning);
+                map.on('rotatestart', stopSpinning);
+
+                // --- Function to Execute the Single-Stage Animation Sequence (To Washington Crossing) ---
+                function executeMapAnimationSequence() {
+                    if (!map) { console.error("Map object not available for animation."); return; }
+                    console.log("Executing single-stage map animation sequence to Washington Crossing.");
+
+                    // 1. Short delay (optional)
+                    setTimeout(() => {
+                        console.log("Flying to Washington Crossing...");
+                        // 2. Fly directly to the final destination
+                        map.flyTo({
+                            center: finalCoords, // Washington Crossing Coords
+                            zoom: 15.5,
+                            pitch: 65,
+                            bearing: -20,
+                            duration: 10000, // 10 seconds flight time
+                            essential: true
+                        });
+
+                        // 3. Start spinning *after* the flyTo animation finishes
+                        map.once('moveend', (e) => {
+                            if (e.essential) { // Ensure it's the end of our flyTo
+                                console.log("Arrived at final destination. Starting spin.");
+                                startSpinning();
+                            }
+                        });
+
+                    }, 500); // Initial delay before flight
+                }
+
+
+                // --- Function called by Intersection Observer ---
+                window.triggerMapAnimation = function() {
+                    if (mapAnimationTriggered) return; // Don't run again
+                    console.log("Map section intersected, triggering animation flag.");
+                    mapAnimationTriggered = true;
+                    if (mapReady) {
+                         console.log("Map already ready, starting animation sequence now.");
+                         executeMapAnimationSequence();
+                    } else {
+                         console.log("Map not ready yet, animation will start on style.load.");
+                    }
+                }
+
+                // --- Explore Button Click Listener (Flies to NYC) ---
+                const exploreButton = document.getElementById('explore-map-button');
+                if (exploreButton && map) { // Ensure button and map exist
+                    exploreButton.addEventListener('click', () => {
+                        console.log("Explore map button clicked. Flying to NYC.");
+
+                        // Stop any existing spinning animation
+                        stopSpinning();
+                        // Stop any ongoing flyTo animation (important if clicked during initial fly-in)
+                        map.stop();
+
+                        // Fly to NYC
+                        map.flyTo({
+                            center: nycCoords,
+                            zoom: 15, // Zoom level for NYC
+                            pitch: 60,  // Pitch for NYC
+                            bearing: -15, // Bearing for NYC
+                            duration: 8000, // Duration for flight to NYC
+                            essential: true
+                        });
+
+                        // Fade out and disable button
+                        exploreButton.classList.remove('visible'); // Use class for visibility/opacity
+                        exploreButton.disabled = true; // Prevent multiple clicks
+
+                        // Optional: Remove the button from DOM after fade out if desired
+                        // setTimeout(() => {
+                        //     exploreButton.remove();
+                        // }, 600); // Match CSS transition duration
+
+                    });
+                } else if (!exploreButton) {
+                    console.error("Explore map button not found!");
+                }
+
+
+            } catch (error) {
+                 console.error("Failed to initialize Mapbox:", error);
+                 mapContainer.innerHTML = '<p style="color: #ff6b6b; text-align: center; padding-top: 40%; font-size: 0.9rem;">Failed to initialize map. Check console.</p>';
+            }
+
+        } else {
+            console.error("Map container (#map-container) not found.");
+        }
+        // --- End Mapbox Setup ---
+
+
+        // --- Scroll Animations (Intersection Observer) ---
+        const animatedElements = document.querySelectorAll('.animate-on-load');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || '0s';
+                    entry.target.style.transitionDelay = delay;
+                    entry.target.classList.add('visible');
+                    // Trigger map animation specifically when mapbox-section is visible
+                    if (entry.target.id === 'mapbox-section') {
+                        if (typeof window.triggerMapAnimation === 'function') {
+                            window.triggerMapAnimation();
+                        }
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 }); // Trigger when 10% visible
+        animatedElements.forEach(el => { observer.observe(el); });
+        // --- End Scroll Animations ---
+
+    </script>
+
+</body>
+</html>

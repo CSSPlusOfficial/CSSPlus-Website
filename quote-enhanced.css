@@ -1,0 +1,609 @@
+/* --- quote-enhanced.css --- */
+
+/* --- Variables --- */
+:root {
+    --gradient-start: #c12dee; /* Purple */
+    --gradient-end: #4b69ec;   /* Blue */
+    --background-color: #121212;
+    --text-color: #e0e0e0;     /* Light Grey */
+    --text-muted-color: #a0a0a0; /* Muted Grey (used for placeholder/option text) */
+    /* --option-text-color: #c0c0c0; /* Removed this */
+    --input-bg-color: rgba(255, 255, 255, 0.05);
+    --input-border-color: rgba(255, 255, 255, 0.2);
+    /* Focus color changed to purple */
+    --input-focus-border-color: var(--gradient-start);
+    /* Focus shadow changed to purple glow */
+    --input-focus-shadow: 0 0 12px rgba(193, 45, 238, 0.7), 0 0 22px rgba(193, 45, 238, 0.4);
+    --card-bg-color: rgba(30, 30, 30, 0.7);
+    --card-border-color: rgba(255, 255, 255, 0.1);
+    --font-primary: 'Geist', sans-serif;
+    --transition-speed: 0.3s;
+}
+
+/* --- General Body & Font --- */
+body {
+    font-family: var(--font-primary);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll if title gets too wide */
+}
+
+/* --- Hero Section Styling --- */
+#quote-hero {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+    align-items: center;     /* Horizontally center content */
+    min-height: 100vh;       /* MODIFIED: Make hero take full viewport height */
+    padding: 2rem 1rem;      /* MODIFIED: Adjusted padding for centering */
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+#quote-hero h1 {
+    /* Uses .gradient-text-heading class */
+    font-size: clamp(4rem, 15vw, 10rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    /* Ensure gradient text styles are applied if not using base class */
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+#quote-hero .hero-intro {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--text-muted-color);
+    max-width: 650px;
+    margin: 0 auto; /* Keep horizontal centering */
+    opacity: 0.9;
+    top: 2rem;
+}
+
+/* --- Form Container & Layout --- */
+#quote-form-section {
+    padding: 2rem 1rem 4rem;
+    position: relative;
+    z-index: 1;
+    /* This section uses .animate-on-load, so it starts hidden */
+}
+
+.quote-form-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--card-bg-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem 3rem;
+}
+
+/* --- Form Sections --- */
+.form-section {
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.form-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+.form-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    position: relative;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--input-border-color);
+}
+
+/* --- Form Group & Floating Labels --- */
+.form-group {
+    position: relative;
+    margin-bottom: 1.8rem;
+}
+
+.form-group label {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    color: var(--text-muted-color);
+    pointer-events: none;
+    transition: all var(--transition-speed) ease;
+    background-color: transparent;
+    padding: 0 5px;
+    font-size: 1rem;
+}
+
+/* Input/Textarea focus or filled state */
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.8rem;
+    color: var(--gradient-start); /* Highlight color to purple */
+    background-color: var(--card-bg-color); /* Needs to match the container background */
+    padding: 0 5px;
+    z-index: 1;
+}
+
+/* Select specific label handling */
+.form-group select + label.select-label {
+    top: 12px;
+    left: 15px;
+    z-index: 0;
+    color: var(--text-muted-color);
+    transition: all var(--transition-speed) ease;
+}
+
+.form-group select:focus + label.select-label,
+.form-group.filled label.select-label,
+.form-group.focused label.select-label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.8rem;
+    color: var(--gradient-start); /* Highlight color to purple */
+    background-color: var(--card-bg-color); /* Needs to match the container background */
+    padding: 0 5px;
+    z-index: 1;
+}
+
+
+/* --- Input, Textarea, Select Styling --- */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px 15px;
+    padding-right: 40px;
+    background-color: var(--input-bg-color);
+    border: 1px solid var(--input-border-color);
+    border-radius: 6px;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, color var(--transition-speed) ease;
+    position: relative;
+    z-index: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+textarea {
+    min-height: 110px !important;
+    resize: vertical;
+    padding-right: 15px;
+}
+
+/* Apply enhanced focus shadow to all inputs */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--input-focus-border-color); /* Uses purple variable */
+    box-shadow: var(--input-focus-shadow); /* Uses purple variable */
+}
+
+input::placeholder {
+    color: transparent;
+}
+
+/* Style the dropdown options */
+select option {
+    background-color: #2a2a2a; /* Dark background for options list */
+    color: var(--text-muted-color); /* Use muted grey for default text */
+    padding: 6px 12px; /* Adjusted padding */
+    transition: background 0.2s ease, color 0.2s ease; /* Use background, not background-color */
+    /* Remove gradient text attempt */
+    background-image: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: initial;
+}
+
+/* Hover effect for options (browser support varies) */
+select option:hover {
+    /* Apply solid purple background */
+    background: var(--gradient-start);
+    color: #ffffff; /* Change text to white on hover */
+}
+
+
+select option[disabled] {
+    color: var(--text-muted-color) !important; /* Ensure disabled is muted */
+    background: #2a2a2a !important; /* Ensure disabled background isn't affected by hover */
+}
+select:invalid,
+select:has(option[value=""]:checked) {
+     color: var(--text-muted-color); /* Placeholder text in box */
+}
+select:not(:has(option[value=""]:checked)) {
+    color: var(--text-color); /* Selected value text in box */
+}
+
+.select-arrow {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid var(--text-muted-color);
+    pointer-events: none;
+    transition: border-color var(--transition-speed) ease, transform 0.2s ease;
+    z-index: 1;
+}
+
+select:focus ~ .select-arrow,
+.form-group.focused .select-arrow {
+    border-top-color: var(--gradient-start); /* Arrow focus color to purple */
+    transform: translateY(-50%) rotate(180deg);
+}
+
+
+/* --- Budget Slider Styling --- */
+.slider-group {
+    position: relative;
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin-top: 30px; /* Space above for label */
+    margin-bottom: 0;
+    padding-bottom: 15px; /* Reduced bottom padding */
+}
+
+.budget-display {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    color: var(--text-color);
+    min-height: 1.5em;
+}
+
+#budget-value {
+     background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
+/* --- Budget Emoji Styling --- REMOVED --- */
+
+
+input[type="range"] {
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    appearance: none;
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end) var(--track-fill-percent, 50%), var(--input-border-color) var(--track-fill-percent, 50%));
+    border-radius: 6px;
+    outline: none;
+    transition: background 0.2s ease;
+    margin-bottom: 0.5rem;
+}
+
+/* Thumb (Chrome, Edge, Safari) */
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    background: var(--text-color);
+    border-radius: 50%;
+    border: 3px solid var(--gradient-start); /* Thumb border to purple */
+    cursor: pointer;
+    margin-top: -6px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb,
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    /* Thumb shadow to purple */
+    box-shadow: 0 0 18px rgba(193, 45, 238, 0.7), 0 0 8px rgba(193, 45, 238, 0.5);
+}
+
+/* Thumb (Firefox) */
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--text-color);
+    border-radius: 50%;
+    border: 3px solid var(--gradient-start); /* Thumb border to purple */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="range"]:focus::-moz-range-thumb,
+input[type="range"]::-moz-range-thumb:hover {
+     transform: scale(1.2);
+     /* Thumb shadow to purple */
+     box-shadow: 0 0 18px rgba(193, 45, 238, 0.7), 0 0 8px rgba(193, 45, 238, 0.5);
+}
+
+/* Min/Max Labels below slider */
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    margin-top: 4px;
+    box-sizing: border-box;
+    font-size: 0.85rem;
+    color: var(--text-muted-color);
+    position: relative;
+}
+
+/* Current Value Label (positioned dynamically ABOVE slider) */
+.current-value-label {
+    position: absolute;
+    top: 20px; /* Adjusted slightly for larger size */
+    left: var(--value-label-left-percent, 50%);
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    padding: 8px 14px; /* Increased padding */
+    border-radius: 8px; /* Increased border-radius */
+    font-size: 0.95rem; /* Increased font size */
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, left 0.1s linear;
+    pointer-events: none;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Modify arrow to point DOWN */
+.current-value-label::after {
+    content: '';
+    position: absolute;
+    top: 100%; /* Position below the label box */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 7px; /* Increased arrow size */
+    border-style: solid;
+    /* Pointing down, blue color */
+    border-color: var(--gradient-end) transparent transparent transparent;
+}
+
+
+/* Show current value label on slider hover/focus */
+.slider-group:hover .current-value-label,
+input[type="range"]:focus ~ .current-value-label {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Submit Button */
+.submit-button {
+    width: 100%;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #c12dee 0%, #4b69ec 100%);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(75, 105, 236, 0.4);
+}
+
+.submit-button .arrow-icon {
+    transition: transform 0.3s ease;
+}
+
+.submit-button:hover .arrow-icon {
+    transform: translateX(5px);
+}
+
+
+
+/* --- Animations --- */
+.animate-on-load {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-load.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsiveness --- */
+@media (min-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .form-section-full {
+        grid-column: 1 / -1;
+    }
+    .quote-form-container {
+        padding: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .quote-form-container {
+        padding: 4rem;
+    }
+     .form-section h2 {
+        font-size: 1.7rem;
+    }
+}
+
+/* --- Mobile Responsiveness --- */
+
+@media (max-width: 768px) {
+    #quote-hero {
+        min-height: 60vh; /* Reduce hero height */
+        padding: 10vh 1rem 5vh;
+    }
+    #quote-hero h1 {
+        font-size: clamp(3rem, 12vw, 6rem); /* Smaller title */
+    }
+    #quote-hero .hero-intro {
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+    }
+    #quote-form-section {
+        padding: 1rem 0.5rem 2rem; /* Reduce section padding */
+    }
+    .quote-form-container {
+        padding: 1.5rem; /* Reduce form padding */
+    }
+    .form-grid {
+        grid-template-columns: 1fr; /* Ensure single column */
+        gap: 1.5rem; /* Reduce gap */
+    }
+    .form-section {
+        padding: 1rem;
+    }
+    .form-section h2 {
+        font-size: 1.3rem; /* Smaller section titles */
+    }
+    .form-group label {
+        font-size: 0.9rem; /* Adjust label size */
+    }
+    input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+        font-size: 0.95rem; /* Slightly smaller input text */
+        padding: 10px 12px;
+    }
+    .submit-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    .current-value-label {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .quote-form-container {
+        padding: 1rem;
+    }
+    .form-section h2 {
+        font-size: 1.2rem;
+    }
+    .form-group label {
+        font-size: 0.85rem;
+    }
+    input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+        font-size: 0.9rem;
+    }
+    .budget-display {
+        font-size: 1.1rem;
+    }
+    .range-labels {
+        font-size: 0.8rem;
+    }
+}
+
+
+/* --- Base Styles (Ensure these exist in styles.css or here) --- */
+.gradient-text-heading {
+  background: linear-gradient(90deg, var(--gradient-start, #c12dee), var(--gradient-end, #4b69ec));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 25px;
+    background: linear-gradient(90deg, var(--gradient-start, #c12dee), var(--gradient-end, #4b69ec));
+    color: white;
+    text-decoration: none;
+    border-radius: 50px; /* Pill shape */
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-primary, sans-serif);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(193, 45, 238, 0.4); /* Shadow + Glow */
+}
+
+.cta-button .arrow-icon {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+    display: inline-block; /* Prevents weird spacing */
+}
+
+.cta-button:hover .arrow-icon {
+    transform: translateX(5px);
+}
+
+/* Scroll-triggered animations */
+.animate-on-load {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-load.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Scroll Down Hint Animation */
+.scroll-down-hint {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+
+/* At the end of quote-enhanced.css */
+.scroll-down-hint {
+    position: fixed !important; /* <<< CHANGE TO absolute */
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    /* ... */
+}

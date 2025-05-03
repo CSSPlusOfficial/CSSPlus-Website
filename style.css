@@ -1,0 +1,277 @@
+/* General Body Styling (for context) */
+body {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  font-family: "Geist", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Our Experience Section - Refined */
+#experience {
+  position: relative;
+  margin: 50px auto;
+  width: 90%;
+  max-width: 900px;
+  background: rgba(40, 40, 40, 0.7);
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  padding: 60px 40px;
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#experience:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.4);
+}
+
+.experience-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Entrance Animations --- */
+.animate-on-load {
+  opacity: 0; /* Start hidden */
+  animation-fill-mode: forwards; /* Keep final state */
+}
+
+#experience h2.animate-on-load {
+  animation: fadeInUp 0.8s 0.2s ease-out forwards;
+}
+
+#experience p.intro-paragraph.animate-on-load {
+  animation: fadeInUp 0.8s 0.4s ease-out forwards;
+}
+
+#experience .tech-focus-area.animate-on-load {
+   animation: fadeInUp 0.8s 0.6s ease-out forwards;
+}
+
+#experience p.closing-statement.animate-on-load {
+   animation: fadeInUp 0.8s 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* --- End Entrance Animations --- */
+
+
+/* Title Styling */
+#experience h2 {
+  font-size: 3.0rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+  /* Initial state set by .animate-on-load */
+}
+
+/* Gradient Text for Heading */
+.gradient-text-heading {
+  background: linear-gradient(270deg, #c12dee, #4b69ec, #f59e0b);
+  background-size: 200% 200%;
+  animation: gradient-flow 7s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Paragraph Styling */
+#experience p.intro-paragraph {
+  font-size: 1.2rem;
+  color: rgba(230, 230, 230, 0.85);
+  max-width: 750px;
+  margin: 0 auto 25px auto;
+  line-height: 1.7;
+  font-weight: 400;
+  /* Initial state set by .animate-on-load */
+}
+
+/* --- Spinning Text Section --- */
+.tech-focus-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  /* Initial state set by .animate-on-load */
+}
+
+.static-text {
+  margin-right: 10px;
+  color: rgba(200, 200, 210, 0.8);
+}
+
+.tech-spinner-container {
+  height: 2.2em; /* Fixed height */
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding: 0 5px;
+}
+
+.tech-spinner {
+  display: flex;
+  flex-direction: column;
+  /* Apply the new keyframe animation */
+  animation: spin-tech-lively 16.5s infinite linear; /* Use linear timing for keyframe control */
+}
+
+.tech-spinner span {
+  display: block;
+  line-height: 1.5;
+  padding: 0.35em 0;
+  text-align: left;
+  color: transparent; /* Base color is transparent for gradient */
+}
+
+/* Gradient Text for Spinner Items */
+.gradient-text-spinner {
+  background: linear-gradient(90deg, #4ade80, #3b82f6, #a855f7);
+  background-size: 200% 100%;
+  animation: gradient-scroll 5s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes gradient-scroll {
+  0% { background-position: 200% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* New Keyframes for Lively Spin */
+/* Total items = 11. Duration = 16.5s. Slot per item = 1.5s */
+/* Percentage per slot = 100 / 11 = ~9.09% */
+/* Transition time = 0.4s (~2.42% of total duration) */
+/* Pause time = 1.1s (~6.67% of total duration) */
+@keyframes spin-tech-lively {
+  /* Item 1 */
+  0% { transform: translateY(0); } /* Start Item 1 */
+  6.67% { transform: translateY(0); } /* Hold Item 1 */
+  /* Item 2 */
+  9.09% { transform: translateY(-2.2em); } /* Snap to Item 2 */
+  15.76% { transform: translateY(-2.2em); } /* Hold Item 2 (6.67 + 9.09) */
+  /* Item 3 */
+  18.18% { transform: translateY(-4.4em); } /* Snap to Item 3 (9.09 * 2) */
+  24.85% { transform: translateY(-4.4em); } /* Hold Item 3 (6.67 + 18.18) */
+  /* Item 4 */
+  27.27% { transform: translateY(-6.6em); } /* Snap Item 4 */
+  33.94% { transform: translateY(-6.6em); } /* Hold Item 4 */
+  /* Item 5 */
+  36.36% { transform: translateY(-8.8em); } /* Snap Item 5 */
+  43.03% { transform: translateY(-8.8em); } /* Hold Item 5 */
+  /* Item 6 */
+  45.45% { transform: translateY(-11.0em); } /* Snap Item 6 */
+  52.12% { transform: translateY(-11.0em); } /* Hold Item 6 */
+  /* Item 7 */
+  54.54% { transform: translateY(-13.2em); } /* Snap Item 7 */
+  61.21% { transform: translateY(-13.2em); } /* Hold Item 7 */
+  /* Item 8 */
+  63.63% { transform: translateY(-15.4em); } /* Snap Item 8 */
+  70.30% { transform: translateY(-15.4em); } /* Hold Item 8 */
+  /* Item 9 */
+  72.72% { transform: translateY(-17.6em); } /* Snap Item 9 */
+  79.39% { transform: translateY(-17.6em); } /* Hold Item 9 */
+  /* Item 10 */
+  81.81% { transform: translateY(-19.8em); } /* Snap Item 10 */
+  88.48% { transform: translateY(-19.8em); } /* Hold Item 10 */
+  /* Item 11 */
+  90.90% { transform: translateY(-22.0em); } /* Snap Item 11 */
+  97.57% { transform: translateY(-22.0em); } /* Hold Item 11 */
+  /* Loop back smoothly (transition happens between 97.57% and 100%) */
+  100% { transform: translateY(-24.2em); } /* End at position of repeated Item 1 */
+}
+/* --- End Spinning Text Section --- */
+
+
+/* Closing Statement Styling */
+#experience p.closing-statement {
+  font-size: 1.1rem;
+  color: rgba(210, 210, 220, 0.8);
+  max-width: 700px;
+  margin: 35px auto 0 auto;
+  line-height: 1.6;
+  font-weight: 400;
+  font-style: italic;
+  /* Initial state set by .animate-on-load */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #experience { padding: 50px 25px; }
+  #experience h2 { font-size: 2.6rem; }
+  #experience p.intro-paragraph { font-size: 1.1rem; }
+  .tech-focus-area { font-size: 1.2rem; flex-direction: column; align-items: center; }
+  .static-text { margin-bottom: 8px; margin-right: 0; }
+  .tech-spinner-container { height: 2.0em; }
+  .tech-spinner span { line-height: 1.4; padding: 0.3em 0; }
+  /* Recalculate animation distances for lively spin */
+  @keyframes spin-tech-lively {
+    0% { transform: translateY(0); } 6.67% { transform: translateY(0); }
+    9.09% { transform: translateY(-2.0em); } 15.76% { transform: translateY(-2.0em); }
+    18.18% { transform: translateY(-4.0em); } 24.85% { transform: translateY(-4.0em); }
+    27.27% { transform: translateY(-6.0em); } 33.94% { transform: translateY(-6.0em); }
+    36.36% { transform: translateY(-8.0em); } 43.03% { transform: translateY(-8.0em); }
+    45.45% { transform: translateY(-10.0em); } 52.12% { transform: translateY(-10.0em); }
+    54.54% { transform: translateY(-12.0em); } 61.21% { transform: translateY(-12.0em); }
+    63.63% { transform: translateY(-14.0em); } 70.30% { transform: translateY(-14.0em); }
+    72.72% { transform: translateY(-16.0em); } 79.39% { transform: translateY(-16.0em); }
+    81.81% { transform: translateY(-18.0em); } 88.48% { transform: translateY(-18.0em); }
+    90.90% { transform: translateY(-20.0em); } 97.57% { transform: translateY(-20.0em); }
+    100% { transform: translateY(-22.0em); } /* 11 * 2.0em */
+  }
+  #experience p.closing-statement { font-size: 1.0rem; }
+}
+
+@media (max-width: 480px) {
+  #experience h2 { font-size: 2.2rem; }
+  #experience p.intro-paragraph { font-size: 1.0rem; }
+  .tech-focus-area { font-size: 1.1rem; }
+  .tech-spinner-container { height: 1.9em; }
+  .tech-spinner span { line-height: 1.3; padding: 0.3em 0; }
+  /* Recalculate animation distances for lively spin */
+   @keyframes spin-tech-lively {
+    0% { transform: translateY(0); } 6.67% { transform: translateY(0); }
+    9.09% { transform: translateY(-1.9em); } 15.76% { transform: translateY(-1.9em); }
+    18.18% { transform: translateY(-3.8em); } 24.85% { transform: translateY(-3.8em); }
+    27.27% { transform: translateY(-5.7em); } 33.94% { transform: translateY(-5.7em); }
+    36.36% { transform: translateY(-7.6em); } 43.03% { transform: translateY(-7.6em); }
+    45.45% { transform: translateY(-9.5em); } 52.12% { transform: translateY(-9.5em); }
+    54.54% { transform: translateY(-11.4em); } 61.21% { transform: translateY(-11.4em); }
+    63.63% { transform: translateY(-13.3em); } 70.30% { transform: translateY(-13.3em); }
+    72.72% { transform: translateY(-15.2em); } 79.39% { transform: translateY(-15.2em); }
+    81.81% { transform: translateY(-17.1em); } 88.48% { transform: translateY(-17.1em); }
+    90.90% { transform: translateY(-19.0em); } 97.57% { transform: translateY(-19.0em); }
+    100% { transform: translateY(-20.9em); } /* 11 * 1.9em */
+  }
+  #experience p.closing-statement { font-size: 0.9rem; }
+}

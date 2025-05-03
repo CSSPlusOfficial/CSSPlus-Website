@@ -1,0 +1,449 @@
+/* --- about.css --- */
+
+/* Import variables if needed, assuming they are in :root in styles.css */
+/* :root { ... } */
+
+/* --- General Page Structure --- */
+#about-hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Ensures h1 is centered */
+    padding: 10vh 5% 15vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#about-hero h1 {
+    font-size: clamp(5rem, 12vw, 10rem);
+    margin: 0;
+    line-height: 1.1;
+    background: var(--main-gradient);
+    background-size: 120% 120%;
+    animation: gradient-animation 8s ease infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    width: auto;
+    display: inline-block;
+}
+
+/* Styles for the hover lines */
+#about-hero h1::before,
+#about-hero h1::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 13em;
+    max-width: 110%;
+    height: 4px;
+    background: var(--main-gradient);
+    background-size: 120% 120%;
+    animation: gradient-animation 8s ease infinite;
+    border-radius: 2px;
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#about-hero h1::before {
+    top: -0.2em;
+}
+
+#about-hero h1::after {
+    bottom: -0.2em;
+}
+
+/* Keep the hover effect */
+#about-hero h1:hover::before,
+#about-hero h1:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+
+#about-hero .hero-intro {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 700px;
+    /* UPDATED: Increased top margin by 3rem (1.5rem + 3rem = 4.5rem) */
+    margin: 4.5rem auto 0;
+    line-height: 1.7;
+    top: 100px;
+}
+
+/* Position scroll hint relative to hero bottom */
+#about-hero {
+    position: absolute;
+    bottom: 5vh; /* Position above the very bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Inherit animation styles from styles.css */
+}
+
+
+/* --- Content Sections --- */
+.content-section {
+    padding: 8vh 5%;
+    max-width: 1100px; /* Default max-width for text content */
+    margin: 0 auto 4rem auto; /* Spacing between sections */
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    /* Optional subtle background/border */
+    /* background: rgba(255, 255, 255, 0.02); */
+    /* border-radius: 12px; */
+    /* border: 1px solid rgba(255, 255, 255, 0.05); */
+}
+
+.content-section h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1.5rem;
+    /* Use gradient text class from styles.css */
+}
+.gradient-text-heading {
+    background: var(--testimonial-gradient); /* Or use --main-gradient */
+    background-size: 200% 200%;
+    animation: gradient-animation 7s ease infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    margin-bottom: 1.5rem; /* Add margin here */
+}
+
+
+.content-section p {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    color: rgba(230, 230, 230, 0.85);
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 1rem auto; /* Center paragraphs */
+}
+
+/* --- Our Values Section --- */
+.values-grid {
+    display: grid;
+    /* UPDATED: Explicitly set 4 equal columns for the default view */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem; /* Slightly reduced gap for 4 columns */
+    margin-top: 3rem;
+}
+
+.value-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    /* Ensure text aligns nicely if cards get narrow */
+    text-align: center;
+}
+
+.value-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.value-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+
+.value-card h3 {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.value-card p {
+    font-size: 0.95rem;
+    color: rgba(230, 230, 230, 0.8);
+    line-height: 1.6;
+    margin-bottom: 0; /* Remove default bottom margin */
+}
+/* --- Mapbox Section --- */
+#mapbox-section {
+    /* Inherits .content-section styles, but we override max-width for the container */
+    max-width: none; /* Allow map container to use its own max-width */
+}
+
+#map-container {
+    height: 650px; /* Height for map */
+    width: 100%;
+    max-width: 1200px; /* Wider map container */
+    margin: 2rem auto 0 auto; /* Center the map container within the section */
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* Slightly stronger shadow */
+    background-color: #1a1a1f; /* Dark placeholder background while map loads */
+    overflow: hidden; /* Ensure map stays within rounded corners */
+    cursor: grab; /* Indicate interactivity */
+    position: relative; /* Needed for absolute positioning of the button */
+}
+#map-container:active {
+    cursor: grabbing;
+}
+
+/* --- Explore Map Button Styles --- */
+.explore-map-btn {
+    position: absolute;
+    bottom: 25px; /* Position from bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* Ensure it's above the map canvas */
+
+    /* Inherit/adapt styles from .cta-button */
+    display: inline-block;
+    padding: 12px 28px; /* Slightly adjusted padding */
+    font-family: var(--font-primary), sans-serif;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    font-weight: 500;
+    color: #fff;
+    background: linear-gradient(95deg, var(--accent-color-1), var(--accent-color-2));
+    border: none;
+    border-radius: 50px; /* Pill shape */
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease-in-out, visibility 0.6s ease-in-out; /* Added opacity/visibility transition */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    /* Initial hidden state */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Prevent interaction while hidden */
+}
+
+.explore-map-btn:hover,
+.explore-map-btn:focus {
+    transform: translateX(-50%) translateY(-3px); /* Adjust transform */
+    box-shadow: 0 7px 20px rgba(113, 63, 237, 0.4); /* Enhanced glow on hover */
+}
+
+/* Style for when button becomes visible */
+.explore-map-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto; /* Allow interaction when visible */
+}
+
+/* Style for disabled state after click */
+.explore-map-btn:disabled {
+    cursor: not-allowed;
+    filter: grayscale(60%);
+    opacity: 0.5; /* Keep opacity low after fade-out */
+}
+
+
+/* Optional: Style Mapbox popups or controls if needed */
+.mapboxgl-popup-content {
+    background: rgba(30, 30, 35, 0.95) !important; /* Darker, less transparent */
+    color: #e5e5e5 !important;
+    border-radius: 6px !important;
+    padding: 12px 18px !important;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.35) !important;
+    font-family: var(--font-primary), sans-serif; /* Use site font */
+    font-size: 0.9rem;
+}
+.mapboxgl-popup-close-button {
+    color: #aaa;
+    font-size: 1.2rem;
+    padding: 5px;
+}
+.mapboxgl-popup-close-button:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+    border-top-color: rgba(30, 30, 35, 0.95) !important;
+}
+/* Add similar rules for other anchor points (top, left, right) if needed */
+
+/* Style Mapbox controls to better fit the dark theme */
+.mapboxgl-ctrl-group {
+    background: rgba(40, 40, 45, 0.85) !important;
+    border-radius: 6px !important;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.25);
+}
+.mapboxgl-ctrl-group button {
+    background-color: transparent !important;
+    width: 32px !important;
+    height: 32px !important;
+}
+.mapboxgl-ctrl-group button .mapboxgl-ctrl-icon {
+    filter: invert(90%) sepia(10%) saturate(100%) hue-rotate(180deg) brightness(100%) contrast(90%); /* Make icons light grey */
+}
+.mapboxgl-ctrl-group button:hover .mapboxgl-ctrl-icon {
+     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(110%) contrast(110%); /* Make icons white on hover */
+}
+.mapboxgl-ctrl-group button:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+.mapboxgl-ctrl-group button:focus-visible { /* Style focus state */
+    outline: 2px solid var(--accent-color-1, #c12dee);
+    outline-offset: -2px;
+}
+.mapboxgl-ctrl button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* --- About CTA Section --- */
+#about-cta {
+    /* Reuse styles from #cta in styles.css or define here */
+    max-width: 900px;
+    background: rgba(45, 45, 45, 0.55);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    padding: 60px 35px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease;
+    text-align: center;
+    margin: 80px auto; /* Standard section margin */
+    position: relative; /* Ensure z-index works if needed */
+    z-index: 1;
+}
+#about-cta:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3);
+    background: rgba(50, 50, 50, 0.65);
+}
+
+#about-cta h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+    background: var(--main-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+#about-cta p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+    max-width: 600px; /* Consistent width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Reuse .cta-button styles from styles.css */
+/* Ensure .cta-button and .arrow-icon styles are defined in styles.css */
+/* .cta-button { ... } */
+/* .cta-button:hover { ... } */
+/* .arrow-icon { ... } */
+
+
+/* --- Animations --- */
+.animate-on-load {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-on-load.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Apply delay using data-delay attribute in HTML */
+[data-delay] {
+    transition-delay: var(--delay, 0s); /* Use CSS variable for delay */
+}
+
+
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) { /* Added breakpoint for map height */
+     #map-container {
+        height: 550px;
+    }
+}
+
+@media (max-width: 992px) { /* Adjust breakpoint as needed (e.g., for tablets) */
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr); /* Switch to 2 columns */
+        gap: 2rem; /* Can increase gap slightly */
+    }
+    /* ... other 992px rules ... */
+     #map-container {
+        height: 550px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* ... other 768px rules ... */
+    #map-container {
+        height: 500px;
+    }
+     .explore-map-btn { padding: 10px 22px; font-size: 0.85rem; bottom: 20px; }
+    /* London button styles removed as per previous request */
+}
+
+@media (max-width: 576px) { /* Adjust breakpoint as needed (e.g., for phones) */
+     .values-grid {
+        grid-template-columns: 1fr; /* Switch to 1 column */
+        gap: 1.5rem; /* Adjust gap for single column */
+    }
+     /* ... other 576px/480px rules ... */
+     #map-container {
+        height: 450px;
+     }
+     .explore-map-btn { bottom: 15px; }
+}
+
+@media (max-width: 480px) {
+     #about-hero h1 {
+        font-size: clamp(3.5rem, 12vw, 5rem); /* Further adjust */
+    }
+     #about-hero .hero-intro {
+        font-size: clamp(1rem, 4vw, 1.1rem);
+    }
+     .content-section h2 {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+    }
+     .content-section p {
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
+    }
+     .values-grid {
+        grid-template-columns: 1fr; /* Stack on smallest screens */
+        gap: 1rem;
+    }
+     .value-card {
+        padding: 1.5rem 1rem;
+    }
+
+     #map-container {
+        height: 450px; /* Adjust map height */
+     }
+
+     #about-cta {
+        padding: 40px 20px;
+    }
+}
+
+
+/* Scroll-triggered animations */
+.animate-on-load {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-load.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Scroll Down Hint Animation */
+.scroll-down-hint {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}

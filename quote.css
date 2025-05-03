@@ -1,0 +1,300 @@
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Hero Section Styles */
+#quote-hero {
+    /* MODIFIED: Removed fixed height, adjusted padding/alignment */
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center;
+    padding: 15vh 40px 5vh; /* Adjusted padding */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    min-height: 50vh; /* Give it some minimum height */
+}
+
+#quote-hero.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Keyframes needed for title animation (assuming it's also in styles.css or services.css) */
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+/* Keyframes from original quote.css (can be removed if not used elsewhere) */
+@keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* MODIFIED: Styles copied from services.css #services-header h1 */
+#quote-hero h1 {
+    font-size: clamp(6rem, 12vw, 12rem);
+    margin: 0; /* Use margin: 0 from services.css */
+    background: var(--main-gradient); /* Use variable defined in styles.css */
+    background-size: 120% 120%;
+    animation: gradient-animation 8s ease infinite; /* Use animation from services.css */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    width: 100%; /* Added from services.css */
+    line-height: 1; /* Added from services.css */
+    position: relative;
+    /* Removed top: -18rem; */
+    /* Removed hover animation specific to old quote.css */
+}
+
+/* ADDED: ::before/::after styles from services.css */
+#quote-hero h1::before,
+#quote-hero h1::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%; /* Match width from services.css */
+    height: 4px;
+    background: var(--main-gradient);
+    background-size: 120% 120%;
+    animation: gradient-animation 8s ease infinite;
+    border-radius: 2px;
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#quote-hero h1::before { top: -30px; } /* Match vertical position from services.css */
+#quote-hero h1::after { bottom: -30px; } /* Match vertical position from services.css */
+
+/* ADDED: Hover effect for ::before/::after from services.css */
+#quote-hero h1:hover::before,
+#quote-hero h1:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+
+/* MODIFIED: Intro text styles adjusted */
+.hero-intro {
+    text-align: center;
+    /* Match font-size/color/width from services.css intro */
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin: 2rem auto 0; /* Use margin like services.css intro */
+    position: relative;
+    z-index: 1;
+    /* Removed top: -15rem; */
+}
+
+
+/* Quote Form Styles (Keep existing styles below) */
+#quote-form {
+    max-width: 1400px;
+    margin: 0 auto 60px;
+    padding: 120px 40px 60px;
+    opacity: 1;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#quote-form.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* Form Container */
+.quote-form-container {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Form Sections */
+.form-section {
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition-delay: 0.3s;
+}
+
+.form-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.form-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #c12dee 0%, #4b69ec 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Form Groups */
+.form-group {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+/* Input Styles */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group label {
+    background: linear-gradient(135deg, rgba(193, 45, 238, 0.8) 0%, rgba(75, 105, 236, 0.8) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 18px 25px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    /* Reverted gradient text color for inputs */
+    color: var(--text-color); /* Use standard text color */
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Budget Slider */
+.slider-group {
+    padding-top: 20px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to right, #c12dee, #4b69ec);
+    border-radius: 3px;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+/* Removed slider checkpoints */
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #c12dee 0%, #4b69ec 100%);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 15px rgba(75, 105, 236, 0.4);
+    animation: pulse 2s infinite;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 20px rgba(75, 105, 236, 0.6);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.budget-display {
+    text-align: center;
+    margin: 25px 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    background: linear-gradient(135deg, #c12dee 0%, #4b69ec 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.budget-display.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    background: linear-gradient(135deg, #c12dee 0%, #4b69ec 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #quote-form {
+        margin: 80px auto 30px;
+    }
+
+    .quote-form-container {
+        padding: 20px;
+    }
+
+    /* Removed h1 font-size change here as it's handled by clamp */
+
+    .quote-intro {
+        font-size: 1rem;
+    }
+}
+
+

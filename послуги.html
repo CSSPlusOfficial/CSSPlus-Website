@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наші послуги - ЦССПЛЮС</title> <!-- Змінено на оригінальну назву бренду -->
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="services-animations.css">
+    <!-- Шрифт Geist завантажується через @font-face у CSS -->
+</head>
+<body>
+    <div id="ukraine-support-widget">
+        <div class="icon-tooltip-wrapper">
+            <div id="ukraine-icon" onclick="showSupportMessage()">
+                <!-- SVG Heart Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </div>
+            <div class="tooltip-text">
+                <span class="text-yellow font-bold">Слава</span> <!-- З великої літери -->
+                <span class="text-blue font-bold">Україні</span> <!-- Додано знак оклику і правильний відмінок -->
+            </div>
+        </div>
+    </div>
+    <!-- Background Animation -->
+    <div class="el"></div>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-indicator"></div>
+
+    <!-- Glowing Menu Icon -->
+    <div class="menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Navigation Menu Layer 1 (Gradient Background) -->
+    <nav class="main-nav"></nav>
+
+    <!-- Navigation Menu Layer 2 (Text Links) -->
+    <nav class="text-nav">
+        <div class="nav-content">
+            <ul>
+                <li data-stagger="1"><a href="додому.html">додому</a></li>
+                    <li data-stagger="2"><a href="послуги.html">послуги</a></li>
+                    <li data-stagger="3"><a href="про нас.html">про нас</a></li>
+                    <li data-stagger="4"><a href="цитата.html">отримати цитату</a></li>
+                    <li class="lang-item" data-stagger="5"><a href="index.html">English</a></li>
+            </ul>
+            <p class="nav-tagline" data-stagger="6">Створюємо цифрову досконалість.</p> <!-- Змінено на дієслово для динамічності -->
+            <div class="nav-contact-info">
+                <ul class="nav-contact-info" data-stagger="7">
+                    <li><a href="mailto:contact@cssplus.us">contact@cssplus.us</a></li> <!-- Consistent contact -->
+                    <li><a href="tel:+12673941289">+1 (267) 394-1289</a></li> <!-- Consistent contact -->
+                 </ul>
+            </div>
+        </div>
+        <div class="nav-divider"></div>
+    </nav>
+
+    <!-- Services Header -->
+    <section id="services-header" class="animate-on-load">
+        <h1>Наші послуги</h1>
+        <p class="services-intro">Експертна розробка індивідуальних вебсайтів, аналіз даних та креативні рішення, адаптовані до ваших потреб.</p> <!-- Оновлений текст вступу -->
+    </section>
+
+    <div class="scroll-down-hint animate-on-load">
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c12dee;" /><stop offset="100%" style="stop-color:#4b69ec;" /></linearGradient></defs><polyline points="4,8 12,16 20,8" fill="none" stroke="url(#arrowGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c12dee;" /><stop offset="100%" style="stop-color:#4b69ec;" /></linearGradient></defs><polyline points="4,8 12,16 20,8" fill="none" stroke="url(#arrowGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c12dee;" /><stop offset="100%" style="stop-color:#4b69ec;" /></linearGradient></defs><polyline points="4,8 12,16 20,8" fill="none" stroke="url(#arrowGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <!-- Services Grid - ОНОВЛЕНО -->
+    <section id="services-grid">
+        <div class="service-card animate-on-load" data-delay="0.2">
+            <div class="service-icon">🎨</div>
+            <h3>Веб-дизайн</h3>
+            <p>Створюємо красиві, адаптивні вебсайти, що відображають суть вашого бренду та захоплюють аудиторію.</p> <!-- Покращений текст -->
+            <ul class="service-features">
+                <li>Індивідуальний UI/UX дизайн</li>
+                <li>Підхід Mobile-First</li>
+                <li>Інтеграція бренду</li>
+                <li>Інтерактивні прототипи</li>
+            </ul>
+        </div>
+
+        <div class="service-card animate-on-load" data-delay="0.4">
+            <div class="service-icon">💻</div>
+            <h3>Індивідуальна веб-розробка</h3>
+            <p>Спеціалізуємося на створенні індивідуальних вебсайтів та вебзастосунків, маючи досвід роботи з різними мовами програмування.</p> <!-- Покращений текст -->
+            <ul class="service-features">
+                <li>Full-Stack розробка</li>
+                <li>Багатомовне програмування</li>
+                <li>Індивідуальні рішення</li>
+                <li>Інтеграція API</li>
+            </ul>
+        </div>
+
+        <div class="service-card animate-on-load" data-delay="0.6">
+            <div class="service-icon">🐍</div>
+            <h3>Розробка на Python</h3>
+            <p>Експертні послуги з розробки на Python для автоматизації, аналізу даних та створення вебзастосунків.</p> <!-- Покращений текст -->
+            <ul class="service-features">
+                <li>Застосунки Django та Flask</li> <!-- Змінено "Додатки" на "Застосунки" -->
+                <li>Обробка даних</li>
+                <li>Скрипти та автоматизація</li> <!-- Виправлено з "Машинне навчання" -->
+                <li>Розробка API</li>
+            </ul>
+        </div>
+
+        <!-- НОВА КАРТКА: Аналіз даних -->
+        <div class="service-card animate-on-load" data-delay="0.8">
+            <div class="service-icon">📊</div> <!-- Змінено іконку -->
+            <h3>Аналіз даних</h3>
+            <p>Розкрийте потенціал ваших даних за допомогою наших послуг з аналізу та візуалізації.</p>
+            <ul class="service-features">
+                <li>Очищення та обробка даних</li>
+                <li>Статистичний аналіз</li>
+                <li>Індивідуальна звітність</li>
+                <li>Створення дашбордів</li>
+            </ul>
+        </div>
+
+        <!-- НОВА КАРТКА: Створення слайд-шоу/презентацій -->
+        <div class="service-card animate-on-load" data-delay="1.0">
+            <div class="service-icon">🖼️</div> <!-- Змінено іконку -->
+            <h3>Створення слайд-шоу/презентацій</h3>
+            <p>Професійні та захопливі презентації, розроблені під ваш контент та аудиторію.</p>
+            <ul class="service-features">
+                <li>Індивідуальні шаблони дизайну</li>
+                <li>Візуалізація даних</li>
+                <li>Структурування контенту</li>
+                <li>Анімація та переходи</li>
+            </ul>
+        </div>
+
+        <!-- НОВА КАРТКА: Інші послуги -->
+        <div class="service-card animate-on-load" data-delay="1.2">
+            <div class="service-icon">💡</div> <!-- Змінено іконку -->
+            <h3>Інші індивідуальні послуги</h3>
+            <p>Маєте унікальну потребу, якої немає у списку? Оберіть "Інше" у формі запиту ціни та розкажіть нам!</p>
+            <ul class="service-features">
+                <li>Консультації</li>
+                <li>Прототипування</li>
+                <li>Спеціалізована розробка</li>
+                <li>Вирішення проблем</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Process Section (Залишено як є) -->
+    <section id="process" class="animate-on-load">
+        <h2>Наш процес</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">01</div>
+                <h3>Дослідження</h3> <!-- Змінено "Відкриття" на "Дослідження" -->
+                <p>Розуміння ваших потреб та цілей</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">02</div>
+                <h3>Планування</h3>
+                <p>Створення детальної дорожньої карти та стратегії</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">03</div>
+                <h3>Розробка</h3>
+                <p>Створення вашого рішення з точністю</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">04</div>
+                <h3>Запуск</h3>
+                <p>Розгортання та забезпечення успіху</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section (Залишено як є) -->
+    <section id="cta" class="animate-on-load">
+        <h2>Готові розпочати ваш проєкт?</h2> <!-- Виправлено "проект" на "проєкт" -->
+        <p>Давайте створимо щось дивовижне разом.</p> <!-- Додано крапку -->
+        <a href="цитата.html" class="cta-button">Отримати цінову пропозицію <span class="arrow-icon">→</span></a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-divider"></div>
+            <p>© <span id="current-year">2024</span> CSSPLUS. Всі права захищено.</p> <!-- Додано динамічний рік, змінено на оригінальну назву бренду -->
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Intersection Observer для анімацій при прокручуванні
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Отримати затримку з data-атрибуту, за замовчуванням 0, якщо не встановлено
+                    const delay = entry.target.dataset.delay || 0;
+                    entry.target.style.transitionDelay = `${delay}s`; // Застосувати затримку
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Припинити спостереження після появи
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Спостерігати за всіма елементами, що потребують анімації
+        document.querySelectorAll('.animate-on-load, .process-step').forEach(el => {
+            // Переконайтеся, що початковий стан встановлено для переходу, якщо це потрібно CSS
+            // el.style.opacity = 0; // Або інші початкові властивості, якщо не встановлено в CSS
+            observer.observe(el);
+        });
+
+        // Рік у футері
+        const currentYearSpan = document.getElementById('current-year');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+
+        // Необов'язково: Ефект паралаксу (Залишити, якщо бажано, видалити, якщо ні)
+        // Враховуйте вплив на продуктивність слухачів прокрутки
+        // window.addEventListener('scroll', () => { ... }, { passive: true });
+
+    </script>
+</body>
+</html>

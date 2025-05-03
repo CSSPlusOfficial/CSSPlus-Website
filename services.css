@@ -1,0 +1,450 @@
+/* Background Animation */
+.el {
+    position: fixed; width: 100vw; height: 100vh;
+    background: conic-gradient(from 180deg at 50% 70%, hsla(0,0%,98%,1) 0deg, #c12dee 72deg, #4b69ec 144deg, #709ab9 216deg, #4df9ff 288deg, hsla(0,0%,98%,1) 1turn);
+    mask: radial-gradient(circle at 50% 50%, white 2px, transparent 2.5px) 50% 50% / var(--size) var(--size),
+          url("https://assets.codepen.io/605876/noise-mask.png") 256px 50% / 256px 256px;
+    mask-composite: intersect; animation: flicker 20s infinite linear; top: 0; z-index: -1;
+}
+
+@keyframes flicker { to { mask-position: 50% 50%, 0 50%; } }
+
+/* Services Page Specific Styles */
+
+/* Services Header */
+#services-header {
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15vh 5% 0;
+}
+
+#services-header {
+    position: relative; /* Ensures this section is the positioning context */
+}
+
+#services-header h1 {
+    font-size: clamp(6rem, 12vw, 12rem);
+    margin: 0;
+    background: var(--main-gradient);
+    background-size: 120% 120%;
+    animation: gradient-animation 8s ease infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    width: 100%;
+    line-height: 1;
+    position: relative;
+}
+
+#services-header h1::before,
+#services-header h1::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 4px;
+    background: var(--main-gradient);
+    background-size: 120% 120%;
+    animation: gradient-animation 8s ease infinite;
+    border-radius: 2px;
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#services-header h1::before { top: -30px; }
+#services-header h1::after { bottom: -30px; }
+
+#services-header h1:hover::before,
+#services-header h1:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.services-intro {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin: 2rem auto 0;
+    padding-top: 3rem;
+}
+
+/* Services Grid */
+#services-grid {
+    display: grid; /* Keep as grid */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Use auto-fit for flexibility */
+    gap: 2.5rem; /* Adjust gap slightly */
+    padding: 8vh 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: linear-gradient(135deg, rgba(45, 45, 45, 0.8) 0%, rgba(75, 75, 80, 0.7) 100%);
+    border-radius: 20px;
+    padding: 45px;
+    backdrop-filter: blur(12px);
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* min-height: 400px; Removed to allow natural height */
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: cardAppear 0.6s forwards ease-out;
+}
+
+@keyframes cardAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dropdown Styles */
+.service-dropdown {
+    background: linear-gradient(135deg, rgba(45, 45, 45, 0.9) 0%, rgba(75, 75, 80, 0.8) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 15px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease-out;
+    backdrop-filter: blur(8px);
+}
+
+.service-dropdown.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-dropdown-item {
+    padding: 12px 15px;
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    background: linear-gradient(135deg, transparent 0%, rgba(75, 75, 80, 0.3) 100%);
+}
+
+.service-dropdown-item:hover {
+    background: linear-gradient(135deg, rgba(193, 45, 238, 0.1) 0%, rgba(75, 105, 236, 0.1) 100%);
+    transform: translateX(5px);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    background: linear-gradient(270deg, #c12dee 0%, #4b69ec 25%, #2c44ac 50%, #4b69ec 75%, #c12dee 100%) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    background-size: 300% 300%;
+    animation: gradient-border 3s ease infinite;
+}
+
+@keyframes gradient-border {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.service-card:hover {
+    transform: translateY(-12px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(193, 45, 238, 0.2),
+        0 0 40px rgba(75, 105, 236, 0.1);
+    background: rgba(55, 55, 55, 0.75);
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(125deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.service-card:hover::after {
+    opacity: 1;
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    background: var(--main-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transform: translateZ(20px);
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    background: var(--main-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.service-card p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+}
+
+.service-features li {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.service-features li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    background: var(--main-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Process Section */
+#process {
+    padding: 10vh 5%;
+    text-align: center;
+    
+}
+
+#process h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 4rem;
+    background: var(--main-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Force 4 columns on large screens */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* Add relative positioning */
+    left: 2rem; /* Shift 5rem to the right */
+}
+
+.process-step {
+    padding: 2rem;
+    position: relative;
+}
+
+.step-number {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    background: var(--main-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0.5;
+}
+
+.process-step h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.process-step p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* CTA Section */
+#cta {
+    max-width: 900px;
+    background: rgba(45, 45, 45, 0.55);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    padding: 60px 35px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease;
+    text-align: center;
+    margin: 80px auto;
+}
+
+#cta h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-bottom: 1rem;
+    background: var(--main-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+#cta p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #fff;
+    background: var(--main-gradient);
+    border-radius: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(75, 105, 236, 0.3);
+}
+
+.arrow-icon {
+    display: inline-block;
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover .arrow-icon {
+    transform: translateX(5px);
+}
+
+#cta:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3);
+    background: rgba(50, 50, 50, 0.65);
+}
+
+/* Animation Classes */
+.animate-on-load {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+[data-delay] {
+    animation-delay: var(--delay);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradient-animation { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotateX(5deg) rotateY(5deg); }
+    50% { transform: translateY(-15px) rotateX(8deg) rotateY(8deg); }
+}
+
+@keyframes shine {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+.service-card {
+    animation: float 6s ease-in-out infinite;
+}
+
+.service-card:nth-child(2) { animation-delay: 1s; }
+.service-card:nth-child(3) { animation-delay: 2s; }
+.service-card:nth-child(4) { animation-delay: 3s; }
+
+.service-card::before {
+    animation: shine 8s linear infinite;
+    background-size: 200% auto;
+}
+
+/* --- Responsive Adjustments for Services Grid --- */
+
+@media (max-width: 992px) {
+    #services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Allow slightly smaller cards */
+        gap: 2rem;
+        padding: 6vh 4%;
+    }
+    .service-card {
+        padding: 35px; /* Adjust card padding */
+    }
+}
+
+@media (max-width: 768px) {
+    #services-grid {
+        grid-template-columns: 1fr; /* Stack cards into a single column */
+        gap: 2rem; /* Adjust gap for single column */
+        padding: 5vh 3%; /* Reduce padding */
+    }
+    .service-card {
+        padding: 30px; /* Adjust card padding */
+        min-height: auto; /* Remove fixed min-height on mobile */
+    }
+    #services-header {
+        height: auto; /* Allow header height to adjust */
+        padding: 15vh 1% 5vh; /* Further reduce horizontal padding */
+
+    }
+}
+
+/* --- Responsive Adjustments for Process Section --- */
+
+@media (max-width: 992px) {
+    #process {
+        padding: 8vh 4%; /* Adjust padding */
+    }
+    .process-steps {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Allow slightly larger items if 2 columns */
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #process {
+        padding: 6vh 3%; /* Further reduce padding */
+    }
+    .process-steps {
+        grid-template-columns: 1fr; /* Stack into a single column */
+        gap: 3rem; /* Adjust gap for vertical layout */
+        left: auto; /* Reset the left offset for mobile centering */
+    }
+}
