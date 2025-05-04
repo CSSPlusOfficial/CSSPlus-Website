@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Send email using EmailJS
         emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
             // Template variables... (ensure these match your template)
-            to_email: 'csplus.buissness@gmail.com',
+            to_email: 'contact@cssplus.us',
             from_name: formData.name,
             from_email: formData.email,
             phone: formData.phone,
