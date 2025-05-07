@@ -10,9 +10,41 @@
         <link rel="stylesheet" href="services.css">
         <link rel="stylesheet" href="services-animations.css">
         <link rel="stylesheet" href="quote-enhanced.css"> <!-- MOVED TO LOAD LAST -->
+        <style>
+            /* Custom styles for цитата.html */
+            @media (max-width: 768px) {
+                /* Increased specificity to override styles from services.css */
+                #services-header h1.quote-main-heading {
+                    font-size: 5.2rem;   /* REALLY BIGGER for mobile */
+                    line-height: 1.25;   /* Adjust for readability if text wraps */
+                    overflow-wrap: break-word; /* Allow breaking long words gracefully */
+                    word-break: normal;      /* Reset from any previous 'break-all' */
+                    hyphens: auto;           /* Suggest hyphenation to the browser */
+                    text-align: center;      /* Ensure text remains centered if it wraps */
+                    width: 100%;             /* Utilize available width within padding */
+                    max-width: 100%;
+                    box-sizing: border-box;
+                }
+
+                #services-header { /* Target the container of the heading */
+                    padding-left: 2%;   /* Further reduce side padding */
+                    padding-right: 2%;  /* Further reduce side padding */
+                    width: 100%;        /* Ensure section uses full viewport width */
+                    box-sizing: border-box;
+                }
+            }
+            /* Additional rule for very small screens */
+            @media (max-width: 370px) {
+                #services-header h1.quote-main-heading {
+                    font-size: 4.0rem; /* REALLY BIGGER for very narrow viewports */
+                    line-height: 1.2;
+                }
+            }
+        </style>
         <!-- Geist font is loaded via @font-face in styles.css -->
     </head>
 <body>
+    <video id="apple-bg" style="display: none;" muted autoplay loop playsinline></video>
     <div id="ukraine-support-widget">
         <div class="icon-tooltip-wrapper">
             <div id="ukraine-icon" onclick="showSupportMessage()">
@@ -68,7 +100,7 @@
 
     <!-- Hero Section -->
     <section id="services-header" class="animate-on-load">
-        <h1>Отримати цінову пропозицію</h1>
+        <h1 class="quote-main-heading">Отримати цінову пропозицію</h1> <!-- ADDED class -->
         <p class="services-intro">Розкажіть нам про свій проєкт, і давайте разом створимо щось дивовижне.</p> <!-- Виправлено "проект" на "проєкт" -->
 
     </section>
@@ -275,5 +307,33 @@
         });
 
     </script>
+
+<script>
+    const isiPhone = /iPhone/.test(navigator.userAgent);
+  
+    if (isiPhone) {
+      const el = document.querySelector('.el');
+      const video = document.getElementById('apple-bg');
+  
+      // Hide the original background
+      if (el) el.style.display = 'none';
+  
+      // Show and style the video
+      video.src = 'your-video.mp4'; // Replace with your actual video file path
+      video.style.display = 'block';
+      video.style.position = 'fixed';
+      video.style.top = '0';
+      video.style.left = '0';
+      video.style.width = '100vw';
+      video.style.height = '100vh';
+      video.style.objectFit = 'cover';
+      video.style.zIndex = '-1';
+      video.muted = true;
+      video.playsInline = true;
+      video.autoplay = true;
+      video.loop = true;
+    }
+  </script>
+  
 </body>
 </html>
