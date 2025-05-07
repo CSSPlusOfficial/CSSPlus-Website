@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - CSSPLUS</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="services-animations.css">
+</head>
+<body>
+    <video id="apple-bg" style="display: none;" muted autoplay loop playsinline></video>
+    <div id="ukraine-support-widget">
+        <div class="icon-tooltip-wrapper">
+            <div id="ukraine-icon" onclick="showSupportMessage()">
+                <!-- SVG Heart Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </div>
+            <div class="tooltip-text">
+                <span class="text-blue font-bold">We</span>
+                <span class="text-yellow font-bold">Support</span>
+                <span class="text-blue font-bold">Ukraine</span>
+            </div>
+        </div>
+    </div>
+    <!-- Background Animation -->
+    <div class="el"></div>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-indicator"></div>
+
+    <!-- Glowing Menu Icon -->
+    <div class="menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Navigation Menu Layer 1 (Gradient Background) -->
+    <nav class="main-nav"></nav>
+
+    <!-- Navigation Menu Layer 2 (Text Links) -->
+    <nav class="text-nav">
+        <div class="nav-content">
+            <ul>
+                <li data-stagger="1"><a href="index.html">Home</a></li>
+                <li data-stagger="1"><a href="services.html">Services</a></li>
+                <li data-stagger="2"><a href="about.html">About Us</a></li>
+                <li data-stagger="3"><a href="quote.html">Get a Quote</a></li>
+                <li class="lang-item" data-stagger="5"><a href="додому.html">українська</a></li>
+            </ul>
+            <div class="nav-tagline">Building Digital Excellence.</div>
+            <div class="nav-contact-info">
+                <ul class="nav-contact-info" data-stagger="7">
+                    <li><a href="mailto:contact@cssplus.us">Email us: contact@cssplus.us</a></li> <!-- Consistent contact -->
+                    <li><a href="tel:+12673941289">Test us: +1 (267) 394-1289 (we dont accept calls) </a></li> <!-- Consistent contact -->
+                 </ul>
+            </div>
+        </div>
+        <div class="nav-divider"></div>
+    </nav>
+
+    <!-- Services Header -->
+    <section id="services-header" class="animate-on-load">
+        <h1>404</h1>
+        <p class="services-intro">Oops! The page you're looking for can't be found. It might have been removed, had its name changed, or is temporarily unavailable.</p>
+        <p class="services-intro">  </p>
+        <a href="index.html" class="cta-button">Go to Homepage <span class="arrow-icon">&rarr;</span></a>
+      
+    </section>
+        
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <hr class="footer-divider">
+            <p>&copy; <span id="current-year"></span> CSSPLUS. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const isiPhone = /iPhone/.test(navigator.userAgent);
+        if (isiPhone) {
+          const el = document.querySelector('.el');
+          const video = document.getElementById('apple-bg');
+          if (el) el.style.display = 'none';
+          video.src = 'bg.mp4'; // Replace with your actual video file path
+          video.style.display = 'block';
+          video.style.position = 'fixed';
+          video.style.top = '0';
+          video.style.left = '0';
+          video.style.width = '100vw';
+          video.style.height = '100vh';
+          video.style.objectFit = 'cover';
+          video.style.zIndex = '-1';
+          video.muted = true;
+          video.playsInline = true;
+          video.autoplay = true;
+          video.loop = true;
+        }
+    </script>
+</body>
+</html>
