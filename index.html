@@ -9,6 +9,8 @@
         <!-- Geist font is loaded via @font-face in CSS -->
     </head>
     <body>
+        <video id="apple-bg" style="display: none;" muted autoplay loop playsinline></video>
+
         <!-- ADDED: Support Ukraine Icon -->
         <div id="ukraine-support-widget">
             <div class="icon-tooltip-wrapper">
@@ -183,5 +185,34 @@
         <!-- === Footer End === -->
 
         <script src="script.js"></script>
+
+        <script>
+            const isiPhone = /iPhone/.test(navigator.userAgent);
+          
+            if (isiPhone) {
+              const el = document.querySelector('.el');
+              const video = document.getElementById('apple-bg');
+          
+              // Hide the original background
+              if (el) el.style.display = 'none';
+          
+              // Show and style the video
+              video.src = 'your-video.mp4'; // Replace with your actual video file path
+              video.style.display = 'block';
+              video.style.position = 'fixed';
+              video.style.top = '0';
+              video.style.left = '0';
+              video.style.width = '100vw';
+              video.style.height = '100vh';
+              video.style.objectFit = 'cover';
+              video.style.zIndex = '-1';
+              video.muted = true;
+              video.playsInline = true;
+              video.autoplay = true;
+              video.loop = true;
+            }
+        </script>
+          
+          
     </body>
     </html>
