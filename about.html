@@ -19,6 +19,7 @@
 
 </head>
 <body>
+    <video id="apple-bg" style="display: none;" muted autoplay loop playsinline></video>
     <div id="ukraine-support-widget">
         <div class="icon-tooltip-wrapper">
             <div id="ukraine-icon" onclick="showSupportMessage()">
@@ -67,8 +68,8 @@
 
              <!-- Contact Info -->
              <ul class="nav-contact-info" data-stagger="7">
-                <li><a href="mailto:contact@cssplus.us">Email us: contact@cssplus.us</a></li> <!-- Consistent contact -->
-                    <li><a href="tel:+12673941289">Test us: +1 (267) 394-1289 (we dont accept calls) </a></li> <!-- Consistent contact -->
+                <li><a href="mailto:contact@cssplus.us">contact@cssplus.us</a></li> <!-- Consistent contact -->
+                <li><a href="tel:+12673941289">+1 (267) 394-1289</a></li> <!-- Consistent contact -->
              </ul>
          </div>
          <!-- Decorative Line -->
@@ -457,6 +458,33 @@
         // --- End Scroll Animations ---
 
     </script>
+
+<script>
+    const isiPhone = /iPhone/.test(navigator.userAgent);
+  
+    if (isiPhone) {
+      const el = document.querySelector('.el');
+      const video = document.getElementById('apple-bg');
+  
+      // Hide the original background
+      if (el) el.style.display = 'none';
+  
+      // Show and style the video
+      video.src = 'your-video.mp4'; // Replace with your actual video file path
+      video.style.display = 'block';
+      video.style.position = 'fixed';
+      video.style.top = '0';
+      video.style.left = '0';
+      video.style.width = '100vw';
+      video.style.height = '100vh';
+      video.style.objectFit = 'cover';
+      video.style.zIndex = '-1';
+      video.muted = true;
+      video.playsInline = true;
+      video.autoplay = true;
+      video.loop = true;
+    }
+  </script>
 
 </body>
 </html>
