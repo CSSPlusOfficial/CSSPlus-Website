@@ -109,8 +109,14 @@
 
 /* Hide Scrollbar & Prevent Scroll when Menu Open */
 body {
-    background: hsl(0, 0%, 6%); overflow-x: hidden; margin: 0; padding: 0;
-    font-family: "Geist", sans-serif; scrollbar-width: none; -ms-overflow-style: none;
+    background: hsl(0, 0%, 6%);
+    color: #EAEAEA; /* Assuming a default light text color, adjust if needed */
+    font-family: "Geist", sans-serif;
+    font-weight: 400; /* Explicitly set a normal font weight */
+    line-height: 1.6; /* A common baseline for readability */
+    margin: 0; padding: 0; overflow-x: hidden; scrollbar-width: none; -ms-overflow-style: none;
+    -webkit-font-smoothing: antialiased; /* For sharper text on WebKit */
+    -moz-osx-font-smoothing: grayscale; /* For sharper text on Firefox/Gecko */
 }
 body::-webkit-scrollbar { display: none; }
 body.menu-open { overflow-y: hidden; }
@@ -142,6 +148,12 @@ body.menu-open { overflow-y: hidden; }
     top: 0;
     z-index: -1;
 }
+
+#apple-bg {
+    pointer-events: none;
+    background: black;
+  }
+  
 
 
 /* Title (CSPLUS) */
@@ -458,10 +470,26 @@ footer p { color: rgba(200, 200, 210, 0.6); font-size: 0.9rem; }
 
 @media (max-width: 768px) {
   :root { --menu-width: 40px; --menu-height: 32px; --menu-bar-height: 4px; }
-  h1 { margin-top: 30vh; }
+  h1 {
+    /* Original: margin-top: 30vh; */
+    /* New centering approach for tablet/mobile */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center text content */
+    align-items: center;     /* Horizontally center text content */
+    min-height: 60vh;        /* Make h1 element itself tall */
+    margin-top: 15vh;        /* Top margin for the h1 block */
+    margin-bottom: 15vh;     /* Bottom margin for the h1 block */
+    box-sizing: border-box;  /* Ensure padding/border don't add to width/height */
+  }
   #experience, #testimonials, #contact, #cta { max-width: 90%; padding: 40px 25px; }
   #experience { margin-top: 100vh; }
   section { padding: 30px 20px; }
+  /* Ensure specific h1s on other pages reset display if needed, though their specific margin/padding should override */
+  /* Example: #about-hero h1 { display: block; min-height: auto; margin: 0; ... } */
+  /* However, your existing specific h1 rules for other pages likely handle this fine. */
+
+
   section h2 { font-size: 2.2rem; }
   section p { font-size: 1rem; }
   #experience h2, #testimonials h2, #contact h2, #cta h2 { font-size: 2.4rem; }
@@ -549,7 +577,20 @@ footer p { color: rgba(200, 200, 210, 0.6); font-size: 0.9rem; }
 
 @media (max-width: 480px) {
    :root { --menu-width: 35px; --menu-height: 28px; --menu-bar-height: 4px; }
-  h1 { margin-top: 25vh; font-size: clamp(3.5rem, 12vw + 1rem, 7rem); }
+  h1 {
+    /* Previous: font-size: clamp(5rem, 12vw + 1rem, 8rem); */
+    font-size: clamp(6rem, 13vw + 1rem, 11rem); /* Made even larger for mobile */
+
+    /* Centering approach for small mobile */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center text content */
+    align-items: center;     /* Horizontally center text content */
+    min-height: 60vh;        /* Make h1 element itself tall */
+    margin-top: 15vh;        /* Top margin for the h1 block */
+    margin-bottom: 15vh;     /* Bottom margin for the h1 block */
+    box-sizing: border-box;  /* Ensure padding/border don't add to width/height */
+  }
   h1::before { top: -0.25em; } h1::after { bottom: -0.25em; }
   #experience, #testimonials, #contact, #cta { max-width: 95%; padding: 30px 15px; }
   #experience { margin-top: 95vh; }
@@ -656,4 +697,3 @@ img, video, iframe {
     backdrop-filter: blur(8px);
     /* ... other styles ... */
 }
-
